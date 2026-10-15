@@ -1,0 +1,10 @@
+{
+  "name": "baton",
+  "description": "Hand off long sessions to a fresh context without losing anything: /baton:handoff saves state to files, a hook tells Claude when it's time, and the next session flags stale handoffs.",
+  "version": "0.1.0",
+  "author": { "name": "Dereknalox123" },
+  "homepage": "https://github.com/Dereknalox123/claude-code-baton",
+  "repository": "https://github.com/Dereknalox123/claude-code-baton",
+  "license": "MIT",
+  "keywords": ["handoff", "context", "clear", "session", "tokens"]
+}

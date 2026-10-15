@@ -1,0 +1,14 @@
+{
+  "name": "claude-code-baton",
+  "description": "Baton: hand off long Claude Code sessions to a fresh context without losing anything.",
+  "owner": {
+    "name": "Dereknalox123"
+  },
+  "plugins": [
+    {
+      "name": "baton",
+      "source": "./",
+      "description": "Hand off long sessions to a fresh context without losing anything."
+    }
+  ]
+}
