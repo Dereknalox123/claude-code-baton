@@ -1,13 +1,13 @@
 // UserPromptSubmit + PostToolUse hook: once the session's context passes a threshold, asks Claude to stop at the next
 // natural break and recommend /baton:handoff. PostToolUse covers long autonomous runs (a plan executed without user messages).
 // Context size = the last main-thread reply's input + cache tokens, read from the transcript's tail; costs no tokens.
-// Nudges once on crossing BATON_NUDGE_TOKENS (default 150000), then again every 50k more; the nudge stays in context.
+// Nudges once on crossing BATON_NUDGE_TOKENS (default 300000), then again every 50k more; the nudge stays in context.
 // Subagent tool calls (agent_id present) are skipped. Silent on any error: a nudge never blocks work.
 import { closeSync, fstatSync, openSync, readFileSync, readSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-const THRESHOLD = Number(process.env.BATON_NUDGE_TOKENS) || 150_000;
+const THRESHOLD = Number(process.env.BATON_NUDGE_TOKENS) || 300_000;
 const STEP = 50_000;
 const TAIL_BYTES = 1_000_000;
 

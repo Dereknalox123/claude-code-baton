@@ -5,7 +5,7 @@ A Claude Code plugin that hands a long session off to a fresh context without lo
 Long sessions get expensive: every request re-reads the whole context, and each tool call is a request. Baton lets you clear at the right moment and pick up exactly where you left off.
 
 - **`/baton:handoff`** moves every decision still living only in the conversation into the files that own it (specs, roadmap, `CLAUDE.md`, memory), then writes a short `.claude/handoff.md` that points at them.
-- **It tells you when.** Once the context passes 150k tokens, Claude recommends a handoff at the next natural break: a plan task or phase done, work committed, tests green. It never interrupts mid-task.
+- **It tells you when.** Once the context passes 300k tokens, Claude recommends a handoff at the next natural break: a plan task or phase done, work committed, tests green. It never interrupts mid-task.
 - **The next session picks it up.** After `/clear`, Claude reads the handoff and the files it lists, then continues.
 - **Stale handoffs get caught.** The handoff records the commit it was written at; if later commits exist that it does not account for, Claude warns you before acting on it. Once its next steps are done, Claude deletes it.
 
@@ -42,7 +42,7 @@ Smaller contexts also tend to keep the model sharper on long tasks.
 
 | Variable | Default | What it does |
 |---|---|---|
-| `BATON_NUDGE_TOKENS` | `150000` | Context size at which Claude starts recommending a handoff. It nudges again every 50k more. |
+| `BATON_NUDGE_TOKENS` | `300000` | Context size at which Claude starts recommending a handoff. It nudges again every 50k more. |
 
 ## How it works
 
